@@ -4,14 +4,16 @@ using KellyTestProject.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KellyTestProject.Migrations
 {
     [DbContext(typeof(MsSqlContext))]
-    partial class MsSqlContextModelSnapshot : ModelSnapshot
+    [Migration("20201130193912_CreateProcedure")]
+    partial class CreateProcedure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
