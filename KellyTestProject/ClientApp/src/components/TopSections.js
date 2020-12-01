@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 
-export class Home extends Component {
-    static displayName = Home.name;
+export class TopSections extends Component {
+    static displayName = TopSections.name;
 
     constructor(props) {
         super(props);
@@ -35,17 +35,16 @@ export class Home extends Component {
     }
 
     render() {
-        let content = this.state.loading ? <p>Загрузка...</p> : Home.renderSectionsTable(this.state.Sections);
+        let content = this.state.loading ? <p>Загрузка...</p> : TopSections.renderSectionsTable(this.state.Sections);
         return (
             <div>
-                <h1>Список разделов</h1>
-                { content }
+                <h1>Топ 3 разделов</h1>
+                { content}
             </div>
         );
     }
-
     async loadSections() {
-        const response = await fetch('api/Section');
+        const response = await fetch('api/GetTopSection');
         const data = await response.json();
         this.setState({ Sections: data, loading: false });
     }

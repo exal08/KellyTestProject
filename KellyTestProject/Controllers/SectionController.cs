@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KellyTestProject.Controllers
 {
-    [Route("api/[controller]")]
+    
     [ApiController]
     public class SectionController : ControllerBase
     {
@@ -17,10 +17,18 @@ namespace KellyTestProject.Controllers
             dbContext = context;
         }
 
+        [Route("api/[controller]")]
         [HttpGet]
         public async Task<List<Section>> Get()
         {
             return await dbContext.Sections.ToListAsync();
+        }
+
+        [Route("api/GetTopSection")]
+        [HttpGet]
+        public async Task<List<Section>> GetTopSection()
+        {
+            return await dbContext.Sections.FromSqlRaw("GetTopThreeSections").ToListAsync();
         }
     }
 }
